@@ -1,0 +1,24 @@
+/* App.css */
+.app {
+  font-family: Arial, sans-serif;
+}
+
+
+.main-layout {
+  display: flex;
+  height: calc(100vh - 80px); /* ลดขนาด header ออกไปประมาณ 80px */
+}
+
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background-color: #154b22;
+  padding: 1rem;
+  border-right: 1px solid #ddd;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}

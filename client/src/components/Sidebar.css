@@ -1,0 +1,33 @@
+/* Sidebar.css */
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-link {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 10px;
+    background-color: #eaeaea;
+    border-radius: 5px;
+  }
+  
+  .nav-link:hover {
+    background-color: #d6d6d6;
+  }
+  
+  .nav-link button {
+    all: unset;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .sidebar-footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #888;
+  }
+  

@@ -1,0 +1,7 @@
+---- รัน Backend ----
+cd server
+node server.js
+
+---- รัน Frontend ----
+cd client
+npm run dev
