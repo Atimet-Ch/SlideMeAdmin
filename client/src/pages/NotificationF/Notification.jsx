@@ -6,11 +6,19 @@ const Notification = () => {
   const [rejectionReasons, setRejectionReasons] = useState({});
   const [filter, setFilter] = useState("all");
 
+  // useEffect(() => {
+  //   axios.get("/api/incidents")
+  //     .then(response => setIncidents(response.data))
+  //     .catch(error => console.error("There was an error fetching incidents", error));
+  // }, []);
+
   useEffect(() => {
-    axios.get("/api/incidents")
-      .then(response => setIncidents(response.data))
-      .catch(error => console.error("There was an error fetching incidents", error));
+    fetch("http://localhost:5000/api/incidents")
+      .then((res) => res.json())
+      .then((data) => setIncidents(data))
+      .catch((err) => console.error("Error fetching incidents:", err));
   }, []);
+  
 
   const handleAccept = (id) => {
     axios.put(`/api/incidents/accept/${id}`)

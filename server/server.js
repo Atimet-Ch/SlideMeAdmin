@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const cron = require("node-cron"); // ✅ ต้องเพิ่ม
+const cron = require("node-cron");
 const dotenv = require('dotenv');
 const path = require('path');
 
@@ -11,6 +11,8 @@ const blockRoutes = require("./routes/block");
 const userRoutes = require("./routes/users");
 const itemsRoute = require('./routes/items');
 const incidentRoutes = require("./routes/incidents");
+const carRoutes = require ("./routes/cars.js");
+const adminRoutes = require("./routes/admins");
 
 const app = express();
 const PORT = 5000;
@@ -33,9 +35,14 @@ app.get("/api/users", async (req, res) => {
 });
 app.use('/api/items', itemsRoute);
 app.use("/api/incidents", incidentRoutes);
+app.use('/api/cars', carRoutes);
+app.use("/api", adminRoutes.router);
 
 // MongoDB Connect
-mongoose.connect("mongodb://localhost:27017/userDB" || "mongodb://localhost:27017/incident_db" || process.env.MONGO_URI);
+// mongoose.connect("mongodb://localhost:27017/userDB" || process.env.MONGO_URI);
+// mongoose.connect("mongodb://localhost:27017/carDB")
+// mongoose.connect("mongodb://localhost:27017/incidentDB")
+mongoose.connect("mongodb://localhost:27017/adminDB")
 
 // ⏰ Auto-Unblock Logic (ทุก 5 นาที)
 cron.schedule("*/5 * * * *", async () => {
